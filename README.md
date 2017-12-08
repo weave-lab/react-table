@@ -1,52 +1,8 @@
-<div style="text-align:center;">
-  <a href="https://github.com/react-tools/react-table" target="\_parent"><img src="https://github.com/react-tools/media/raw/master/logo-react-table.png" alt="React Table Logo" style="width:450px;"/></a>
-</div>
 
-# React Table
-`react-table` is a **lightweight, fast and extendable datagrid** built for React
+# Weave React Table
+Forked from [react-table](http://react-table.js.org)
 
-<a href="https://travis-ci.org/react-tools/react-table" target="\_parent">
-  <img alt="" src="https://travis-ci.org/react-tools/react-table.svg?branch=master" />
-</a>
-<a href="https://npmjs.com/package/react-table" target="\_parent">
-  <img alt="" src="https://img.shields.io/npm/dm/react-table.svg" />
-</a>
-<a href="https://react-chat-signup.herokuapp.com/" target="\_parent">
-  <img alt="" src="https://img.shields.io/badge/slack-react--chat-blue.svg" />
-</a>
-<a href="https://github.com/react-tools/react-table" target="\_parent">
-  <img alt="" src="https://img.shields.io/github/stars/react-tools/react-table.svg?style=social&label=Star" />
-</a>
-<a href="https://twitter.com/tannerlinsley" target="\_parent">
-  <img alt="" src="https://img.shields.io/twitter/follow/tannerlinsley.svg?style=social&label=Follow" />
-</a>
-<a href="https://cash.me/$tannerlinsley" target="\_parent">
-  <img alt="" src="https://img.shields.io/badge/%24-Donate-brightgreen.svg" />
-</a>
-
-<br />
-<br />
-
-[![Sponsor](https://app.codesponsor.io/embed/zpmS8V9r31sBSCeVzP7Wm6Sr/react-tools/react-table.svg)](https://app.codesponsor.io/link/zpmS8V9r31sBSCeVzP7Wm6Sr/react-tools/react-table)
-
-## Features
-- Lightweight at 11kb (and just 2kb more for styles)
-- Fully customizable (JSX, templates, state, styles, callbacks)
-- Client-side & Server-side pagination
-- Multi-sort
-- Filters
-- Pivoting & Aggregation
-- Minimal design & easily themeable
-- Fully controllable via optional props and callbacks
-- <a href="https://medium.com/@tannerlinsley/why-i-wrote-react-table-and-the-problems-it-has-solved-for-nozzle-others-445c4e93d4a8#.axza4ixba" target="\_parent">"Why I wrote React Table and the problems it has solved for Nozzle.io</a> by Tanner Linsley
-
-## [Demos and examples](http://react-table.js.org/#/story/simple-table)
-
-## Versions
-- This documentation is for version 6 of react-table.
-- [View the Changelog](https://github.com/react-tools/react-table/blob/master/CHANGELOG.md)
-- Previous versions:
-  - [5.x.x Readme](https://github.com/react-tools/react-table/blob/ad7d31cd3978eb45da7c6194dbab93c1e9a8594d/README.md)
+`weave-react-table` is a **lightweight, fast and extendable datagrid** built for React
 
 ## Table of Contents
 - [Installation](#installation)
@@ -72,45 +28,24 @@
 
 
 ## Installation
-1. Install React Table as a dependency
-```bash
-# Yarn
-$ yarn add react-table
+1. Install Weave React Table as a dependency
 
-# NPM
-$ npm install react-table
-```
-2. Import the `react-table` module
+2. Import the `weave-react-table` module
 ```javascript
 // ES6
-import ReactTable from 'react-table'
-// ES5
-var ReactTable = require('react-table').default
+import ReactTable from 'weave-react-table'
 ```
+
 3. Import styles by including `react-table.css`
 ```javascript
 // JS (Webpack)
-import 'react-table/react-table.css'
-// Old-school
-<link rel="stylesheet" href="node_modules/react-table/react-table.css">
-```
-##### CDN
-```html
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/react-table@latest/react-table.css">
-
-  <!-- JS -->
-  <script src="https://unpkg.com/react-table@latest/react-table.js"></script>
-
-  <script>
-    var ReactTable = window.ReactTable.default
-  </script>
+import 'weave-react-table/react-table.css'
 ```
 
 
 ## Example
 ```javascript
-import ReactTable from 'react-table'
+import ReactTable from 'weave-react-table'
 
 render() {
   const data = [{
@@ -155,12 +90,18 @@ Simply pass the `data` prop anything that resembles an array or object. Client-s
 These are all of the available props (and their default values) for the main `<ReactTable />` component.
 ```javascript
 {
+  //Weave Specfic
+
+  //If you don't know the total amount of pages (from server side pagination) then you should use these and omit the 'pages' prop
+  hideTotalPageCount: false,
+  isNextPageAvailable: false, 
+
   // General
   data: [],
   loading: false,
   showPagination: true,
   showPaginationTop: false,
-  showPaginationBottom: true
+  showPaginationBottom: true,
   showPageSizeOptions: true,
   pageSizeOptions: [5, 10, 20, 25, 50, 100],
   defaultPageSize: 20,
@@ -323,7 +264,7 @@ These are all of the available props (and their default values) for the main `<R
 You can easily override the core defaults like so:
 
 ```javascript
-import { ReactTableDefaults } from 'react-table'
+import { ReactTableDefaults } from 'weave-react-table'
 
 Object.assign(ReactTableDefaults, {
   defaultPageSize: 10,
@@ -542,7 +483,7 @@ const columns = [{
 
 ## Styles
 - React-table ships with a minimal and clean stylesheet to get you on your feet quickly.
-- The stylesheet is located at `react-table/react-table.css`.
+- The stylesheet is located at `weave-react-table/react-table.css`.
 - There are countless ways to import a stylesheet. If you have questions on how to do so, consult the documentation of your build system.
 
 #### Classes
@@ -704,7 +645,7 @@ By adding a `SubComponent` props, you can easily add an expansion level to all r
 
 
 ## Server-side Data
-If you want to handle pagination, sorting, and filtering on the server, `react-table` makes it easy on you.
+If you want to handle pagination, sorting, and filtering on the server, `weave-react-table` makes it easy on you.
 
 1. Feed React Table `data` from somewhere dynamic. eg. `state`, a redux store, etc...
 1. Add `manual` as a prop. This informs React Table that you'll be handling sorting and pagination server-side
@@ -712,14 +653,21 @@ If you want to handle pagination, sorting, and filtering on the server, `react-t
 1. In the `onFetchData` callback, request your data using the provided information in the params of the function (current state and instance)
 1. Update your data with the rows to be displayed
 1. Optionally set how many pages there are total
+1. set `hideTotalPageCount` to false if you don't have a total count of pages,
+1. Use `isNextPageAvailable` to enable or disable the 'next' page button
 
 ```javascript
 <ReactTable
   ...
   data={this.state.data} // should default to []
-  pages={this.state.pages} // should default to -1 (which means we don't know how many pages we have)
+  pages={this.state.pages} // should default to -1 (which means we don't know how many pages we have) or Omitted if we will never know how many pages we will have.
   loading={this.state.loading}
   manual // informs React Table that you'll be handling sorting and pagination server-side
+  hideTotalPageCount= {true} //only use if you don't know total page count
+  isNextPageAvailable = {()=>{ // only use if you don't know total page count
+    //logic to determine if another page exists
+    //return true to enable next button
+  }}
   onFetchData={(state, instance) => {
     // show the loading overlay
     this.setState({loading: true})
@@ -742,7 +690,6 @@ If you want to handle pagination, sorting, and filtering on the server, `react-t
 />
 ```
 
-For a detailed example, take a peek at our <a href="https://github.com/react-tools/react-table/blob/master/stories/ServerSide.js" target="\_parent">async table mockup</a>
 
 ## Fully Controlled Component
 React Table by default works fantastically out of the box, but you can achieve even more control and customization if you choose to maintain the state yourself. It is very easy to do, even if you only want to manage *parts* of the state.
@@ -884,10 +831,10 @@ To completely override the filter that is shown, you can set the `Filter` column
 See <a href="http://react-table.js.org/#/story/custom-filtering" target="\_parent">Custom Filtering</a> demo for examples.
 
 ## Component Overrides
-Though we confidently stand by the markup and architecture behind it, `react-table` does offer the ability to change the core componentry it uses to render everything. You can extend or override these internal components by passing a react component to it's corresponding prop on either the global props or on a one-off basis like so:
+Though we confidently stand by the markup and architecture behind it, `weave-react-table` does offer the ability to change the core componentry it uses to render everything. You can extend or override these internal components by passing a react component to it's corresponding prop on either the global props or on a one-off basis like so:
 ```javascript
 // Change the global default
-import { ReactTableDefaults } from 'react-table'
+import { ReactTableDefaults } from 'weave-react-table'
 Object.assign(ReactTableDefaults, {
   TableComponent: component,
   TheadComponent: component,
@@ -920,24 +867,13 @@ Object.assign(ReactTableDefaults, {
 
 If you choose to change the core components React-Table uses to render, you must make sure your replacement components consume and utilize all of the supplied and inherited props that are needed for that component to function properly. We would suggest investigating <a href="https://github.com/react-tools/react-table/blob/master/src/index.js" target="\_parent">the source</a> for the component you wish to replace.
 
-
-## Contributing
-To suggest a feature, create an issue if it does not already exist.
-If you would like to help develop a suggested feature follow these steps:
-
-- Fork this repo
-- Install dependencies with `$ yarn`
-- Auto-build files as you edit with `$ yarn run watch`
-- Implement your changes to files in the `src/` directory
-- Run the <a href="https://github.com/tannerlinsley/react-story">React Story</a> locally with `$ yarn run docs`
-- View changes as you edit `docs/src`,
-- Submit PR for review
-
 #### Scripts
 
+Use can use `npm` or `yarn`
+
 - `$ yarn run watch` Watches files and builds via babel
-- `$ yarn run docs` Runs the storybook server
 - `$ yarn run test` Runs the test suite
+- `$ yarn run prepublish` Builds a prod verison that is ready to be published to an NPM registry
 
 ## Used By
 

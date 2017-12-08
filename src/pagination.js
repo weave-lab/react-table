@@ -30,14 +30,28 @@ export default class ReactTablePagination extends Component {
     if (isNaN(page)) {
       page = this.props.page
     }
+    if(this.props.hideTotalPageCount) {
+      return page
+    }
     return Math.min(Math.max(page, 0), this.props.pages - 1)
   }
 
   changePage (page) {
-    page = this.getSafePage(page)
+    if(!this.props.hideTotalPageCount) {
+      page = this.getSafePage(page)
+    }
     this.setState({ page })
     if (this.props.page !== page) {
       this.props.onPageChange(page)
+    }
+  }
+
+  getPageCountText(pages) {
+    if(this.props.hideTotalPageCount) {
+      return null;
+    }
+    else {
+      return <span>{this.props.ofText} <span className="-totalPages">{pages || 1}</span> </span>
     }
   }
 
@@ -108,8 +122,7 @@ export default class ReactTablePagination extends Component {
               : <span className="-currentPage">
                 {page + 1}
               </span>}{' '}
-            {this.props.ofText}{' '}
-            <span className="-totalPages">{pages || 1}</span>
+              {this.getPageCountText(pages)}
           </span>
           {showPageSizeOptions &&
             <span className="select-wrap -pageSizeOptions">

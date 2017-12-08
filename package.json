@@ -1,12 +1,11 @@
 {
-  "name": "react-table",
-  "version": "6.7.4",
+  "name": "weave-react-table",
+  "version": "1.0.0",
   "description": "A fast, lightweight, opinionated table and datagrid built on React",
   "license": "MIT",
-  "homepage": "https://github.com/react-tools/react-table#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-tools/react-table.git"
+    "url": "git+https://github.com/weave-lab/react-table"
   },
   "keywords": [
     "react",
@@ -61,7 +60,7 @@
     "onchange": "^3.0.2",
     "postcss-cli": "^2.6.0",
     "prop-types": "^15.6.0",
-    "react": "^15.4.2",
+    "react": "^15.6.2",
     "react-dom": "^15.4.2",
     "react-json-tree": "^0.10.9",
     "rimraf": "^2.6.1",

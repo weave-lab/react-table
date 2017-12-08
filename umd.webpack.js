@@ -4,7 +4,7 @@ module.exports = {
   output: {
     filename: './react-table.js',
     libraryTarget: 'umd',
-    library: 'ReactTable'
+    library: 'WeaveReactTable'
   },
   externals: {
     react: {

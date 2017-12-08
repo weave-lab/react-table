@@ -102,6 +102,8 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       expanded,
       pages,
       onExpandedChange,
+      isNextPageAvailable,
+      hideTotalPageCount,
       // Components
       TableComponent,
       TheadComponent,
@@ -164,7 +166,14 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
     ;[pageRows] = recurseRowsViewIndex(pageRows)
 
     const canPrevious = page > 0
-    const canNext = page + 1 < pages
+    let canNext;
+    if (hideTotalPageCount) {
+      canNext = isNextPageAvailable
+    }
+    else {
+      canNext = page + 1 < pages
+    }
+
 
     const rowMinWidth = _.sum(
       allVisibleColumns.map(d => {
