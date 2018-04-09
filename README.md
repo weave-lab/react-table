@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.getweave.com/weave-lab/internal/react-table/badges/master/pipeline.svg)](https://gitlab.getweave.com/weave-lab/internal/react-table/commits/master)
+[![coverage report](https://gitlab.getweave.com/weave-lab/internal/react-table/badges/master/coverage.svg)](https://gitlab.getweave.com/weave-lab/internal/react-table/commits/master)
 
 # Weave React Table
 Forked from [react-table](http://react-table.js.org)
