@@ -1,3 +1,13 @@
+[![pipeline status](https://gitlab.getweave.com/weave-lab/internal/react-table/badges/master/pipeline.svg)](https://gitlab.getweave.com/weave-lab/internal/react-table/commits/master)
+[![coverage report](https://gitlab.getweave.com/weave-lab/internal/react-table/badges/master/coverage.svg)](https://gitlab.getweave.com/weave-lab/internal/react-table/commits/master)
+
+## Installation
+```bash
+go get weavelab.xyz/react-table
+```
+
+For more information on `weavelab.xyz`, see the projects [readme](https://gitlab.getweave.com/weave-lab/ops/xyz/blob/master/README.md).
+
 
 # Weave React Table
 Forked from [react-table](http://react-table.js.org)
